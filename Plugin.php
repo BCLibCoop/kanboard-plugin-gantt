@@ -12,9 +12,10 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $this->route->addRoute('gantt/:project_id', 'TaskGanttController', 'show', 'plugin');
-        $this->route->addRoute('gantt/:project_id/sort/:sorting', 'TaskGanttController', 'show', 'plugin');
-        
+        $this->route->addRoute('gantt/:project_id', 'TaskGanttController', 'show', 'Gantt');
+        $this->route->addRoute('gantt/:project_id/search/:search', 'TaskGanttController', 'show', 'Gantt');
+        $this->route->addRoute('gantt/:project_id/sort/:sorting', 'TaskGanttController', 'show', 'Gantt');
+
         $this->projectAccessMap->add('ProjectGanttController', 'save', Role::PROJECT_MANAGER);
         $this->projectAccessMap->add('TaskGanttController', 'save', Role::PROJECT_MEMBER);
 
